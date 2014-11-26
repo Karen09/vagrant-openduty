@@ -1,7 +1,7 @@
 Puppetized  Openduty
 ========================
 
-# Here you can see all commands wich we need to install openduty,so I make the same thing but for Puppet.
+# Here you can see all commands which we need to install openduty,so I make the same thing but for Puppet.
 
   sudo easy_install pip
 
