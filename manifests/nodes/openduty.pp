@@ -1,7 +1,7 @@
 node 'openduty' {
 
   package {'openduty':
-    ensur  => '2.1-1',
+    ensure  => '2.1-1',
   }
 
       yumrepo  {'openduty':
