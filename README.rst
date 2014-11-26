@@ -1,16 +1,24 @@
-  Puppetized  Openduty
+Puppetized  Openduty
 ========================
 
   Here you can see all commands wich we need to install openduty,so I make the same thing but for Puppet.
 
   sudo easy_install pip
+
   sudo pip install virtualenv
+
   virtualenv env
+
   . env/bin/activate
+
   pip install -r requirements.txt
+
   export DJANGO_SETTINGS_MODULE=openduty.settings_dev
+
   python manage.py syncdb
+
   python manage.py migrate
+
   python manage.py runserver
 
 1.Install VirtualBox
