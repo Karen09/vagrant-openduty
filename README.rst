@@ -1,7 +1,7 @@
 Puppetized  Openduty
 ========================
 
-  Here you can see all commands wich we need to install openduty,so I make the same thing but for Puppet.
+# Here you can see all commands wich we need to install openduty,so I make the same thing but for Puppet.
 
   sudo easy_install pip
 
@@ -35,12 +35,12 @@ Puppetized  Openduty
 4.Get Github Repository
 ========================
 
-  $git clone https://github.com/Karen09/Openduty-Puppetized.git
+  $ git clone https://github.com/Karen09/Openduty-Puppetized.git
 
 5.Change directory to Openduty-Puppetized
 ==========================================
 
-  $cd Openduty-Puppetized/
+  $ cd Openduty-Puppetized/
 
 6.Add puppet firewall modules
 =============================
@@ -50,7 +50,7 @@ Puppetized  Openduty
 7.Run vagrant
 ============
 
-  $vagrant up
+  $ vagrant up
 
 8.Log In Openduty
 ==================
