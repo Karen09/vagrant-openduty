@@ -1,8 +1,8 @@
 node 'openduty' {
 
-      package  {'openduty':
-             ensure      => '2.1-1',
-      }
+  package {'openduty':
+    ensur  => '2.1-1',
+  }
 
       yumrepo  {'openduty':
              baseurl     => 'https://pulp.inuits.eu/upstream/',

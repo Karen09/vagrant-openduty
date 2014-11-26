@@ -15,13 +15,13 @@
     config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
 
 
-config.vm.provision "puppet" do |puppet|
-puppet.manifests_path = "manifests"
-puppet.manifests_path = "manifests"
-puppet.module_path = "modules"
-puppet.manifest_file = "site.pp"
-puppet.options = "--verbose --debug"
-end
+  config.vm.provision "puppet" do |puppet|
+    puppet.manifests_path = "manifests"
+    puppet.manifests_path = "manifests"
+    puppet.module_path = "modules"
+    puppet.manifest_file = "site.pp"
+    puppet.options = "--verbose --debug"
+  end
 
 
   # The url from where the 'config.vm.box' box will be fetched if it
