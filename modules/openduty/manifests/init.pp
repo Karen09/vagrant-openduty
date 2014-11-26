@@ -1,6 +1,21 @@
-class openduty {
+class openduty (
+  $TIME_ZONE  = 'Europe/Brussels',  #Change it to you're currently time zone
+  $DEBUG = 'False',                 #False or True
+  $TEMPLATE_DEBUG = 'False',        #False or True
+  $LOGIN_URL = '/login/',
+  $ALLOWED_HOSTS = '[]',            #use  [#HOSTS]
+  $BROKER_URL = 'django://',
+  $USE_I18N = 'True',               #False or True  
+  $USE_L10N = 'True',               #False or True
+  $USE_TZ = 'True',                 #False or True
+  $SECRET_KEY = '',
+  $STATIC_URL = '/static/',
+  $LANGUAGE_CODE = 'en-us',
+  $BASE_URL = '',
+  $ROOT_URLCONF = 'openduty.urls',
+) {
   package {'openduty':
-    ensure      => '2.1-1',
+    ensure   => '2.1-1',
   }
 
   exec     {'syncdb':
@@ -22,6 +37,12 @@ class openduty {
   service  {'openduty':
     require =>  Exec['syncdb'],
     ensure  =>  running,
+  }
+
+  file { '/opt/openduty/openduty/settings.py':
+    ensure  => file,
+    content => template('openduty/settings.py.erb'),
+    notify  => Service['openduty'],
   }
 
 }
