@@ -42,17 +42,13 @@ Puppetized  Openduty
 
   $ cd Openduty-Puppetized/
 
-6.Add puppet firewall modules
-=============================
 
-  $ git submodule update --init
-
-7.Run vagrant
+6.Run vagrant
 ============
 
   $ vagrant up
 
-8.Log In Openduty
+7.Log In Openduty
 ==================
 
   go to ->  192.168.33.10:8000
@@ -63,7 +59,7 @@ Puppetized  Openduty
 
   passwd:toor
 
-9.Extra Info
+8.Extra Info
 =============
 
   I will wait for Feedback`s . thanks
