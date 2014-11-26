@@ -29,7 +29,7 @@
 
   $git clone https://github.com/Karen09/Openduty-Puppetized.git
 
-5.Change directory to Openduty-puppetized-
+5.Change directory to Openduty-Puppetized
 ==========================================
 
   $cd Openduty-Puppetized/
