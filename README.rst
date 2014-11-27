@@ -1,25 +1,6 @@
 Puppetized  Openduty
 ========================
-
-# Here you can see all commands which we need to install openduty,so I make the same thing but for Puppet.
-
-  sudo easy_install pip
-
-  sudo pip install virtualenv
-
-  virtualenv env
-
-  . env/bin/activate
-
-  pip install -r requirements.txt
-
-  export DJANGO_SETTINGS_MODULE=openduty.settings_dev
-
-  python manage.py syncdb
-
-  python manage.py migrate
-
-  python manage.py runserver
+#I am now at working to make hiera in Puppetized Openduty
 
 1.Install VirtualBox
 ====================
@@ -35,12 +16,12 @@ Puppetized  Openduty
 4.Get Github Repository
 ========================
 
-  $ git clone https://github.com/Karen09/Openduty-Puppetized.git
+  $ git clone https://github.com/Karen09/vagrant-openduty.git
 
-5.Change directory to Openduty-Puppetized
+5.Change directory to vagrant-openduty
 ==========================================
 
-  $ cd Openduty-Puppetized/
+  $ cd vagrant-openduty/
 
 
 6.Run vagrant
