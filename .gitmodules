@@ -3,4 +3,4 @@
 	url = https://github.com/puppetlabs/puppetlabs-firewall.git
 [submodule "modules/openduty"]
 	path = modules/openduty
-	url = https://github.com/Karen09/vagrant-openduty.git
+	url = https://github.com/Karen09/puppet-openduty.git
