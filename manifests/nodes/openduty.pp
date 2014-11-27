@@ -6,5 +6,11 @@ node 'openduty'{
     action => 'accept',
   }
 
+  yumrepo  {'openduty':
+    baseurl  => 'https://pulp.inuits.eu/upstream/',
+    gpgcheck => '0',
+    enabled  => '1',
+  }
+
   class {'openduty':}
 }

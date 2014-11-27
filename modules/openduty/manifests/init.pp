@@ -1,48 +1,29 @@
+#class openduty
+#
+#Initialization class for the openduty  agent
 class openduty (
-  $TIME_ZONE  = 'Europe/Brussels',  #Change it to you're currently time zone
-  $DEBUG = 'False',                 #False or True
-  $TEMPLATE_DEBUG = 'False',        #False or True
-  $LOGIN_URL = '/login/',
-  $ALLOWED_HOSTS = '[]',            #use  [#HOSTS]
-  $BROKER_URL = 'django://',
-  $USE_I18N = 'True',               #False or True  
-  $USE_L10N = 'True',               #False or True
-  $USE_TZ = 'True',                 #False or True
-  $SECRET_KEY = '',
-  $STATIC_URL = '/static/',
-  $LANGUAGE_CODE = 'en-us',
-  $BASE_URL = '',
-  $ROOT_URLCONF = 'openduty.urls',
-) {
-  package {'openduty':
-    ensure   => '2.1-1',
-  }
+  $TIME_ZONE       = $openduty::params::TIME_ZONE,
+  $DEBUG           = $openduty::params::DEBUG,
+  $TEMPLATE_DEBUG  = $openduty::params::TEMPLATE_DEBUG,
+  $LOGIN_URL       = $openduty::params::LOGIN_URL,
+  $ALLOWED_HOSTS   = $openduty::params::ALLOWED_HOSTS,
+  $BROKER_URL      = $openduty::params::BROKER_URL,
+  $USE_I18N        = $openduty::params::USE_I18N,
+  $USE_L10N        = $openduty::params::USE_L10N,
+  $USE_TZ          = $openduty::params::USE_TZ,
+  $SECRET_KEY      = $openduty::params::SECRET_KEY,
+  $STATIC_URL      = $openduty::params::STATIC_URL,
+  $LANGUAGE_CODE   = $openduty::params::LANGUAGE_CODE,
+  $BASE_URL        = $openduty::params::BASE_URL,
+  $ROOT_URLCONF    = $openduty::params::ROOT_URLCONF,
+) inherits openduty::params {
 
-  exec     {'syncdb':
-    require     =>  Package['openduty'],
-    command     => 'source env/bin/activate && python manage.py syncdb && python manage.py migrate',
-    cwd         => '/opt/openduty/',
-    environment => 'DJANGO_SETTINGS_MODULE=openduty.settings_dev',
-    creates     => '/opt/openduty/database.sql',
-    path        => '/usr/bin',
-    provider    =>  shell,
-  }
 
-  yumrepo  {'openduty':
-    baseurl  => 'https://pulp.inuits.eu/upstream/',
-    gpgcheck => '0',
-    enabled  => '1',
-  }
+  include openduty::install
+  include openduty::config
+  include openduty::service
 
-  service  {'openduty':
-    require =>  Exec['syncdb'],
-    ensure  =>  running,
-  }
-
-  file { '/opt/openduty/openduty/settings.py':
-    ensure  => file,
-    content => template('openduty/settings.py.erb'),
-    notify  => Service['openduty'],
-  }
-
+  Class['openduty::install'] ->
+  Class['openduty::config'] ->
+  Class['openduty::service']
 }
