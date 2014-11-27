@@ -46,6 +46,8 @@ Puppetized  Openduty
 6.Run vagrant
 ============
 
+  $ vagrant submodule update --init 
+
   $ vagrant up
 
 7.Log In Openduty
